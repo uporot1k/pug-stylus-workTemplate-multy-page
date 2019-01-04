@@ -4,8 +4,13 @@
 ```
 src/
   pug/
+    partials/
+      layout.pug
+      config.pug
+    index.pug  
   js/
     entries/
+      index.js
   stylus/
   images/
 webpack-config
