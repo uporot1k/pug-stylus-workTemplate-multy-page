@@ -3,7 +3,7 @@
 
 ```
 src/
-  jade/
+  pug/
   js/
     entries/
   stylus/
