@@ -1,77 +1,79 @@
-# Multi-page Websites with Jade, Stylus, ES6 & Webpack
-
-Webpack is awesome, but is usually used to build single page applications with React or other JS libraries.
-
-Many of us front-end developers learned to love using Jade/Pug over the years, and would like to keep using this templating language for building traditional, multi-page websites.
-
-This repository aims to let you keep using your Jade/Pug workflow, but step into the wonderful (and daunting) world of Webpack.
-
-Create multiple Jade page templates, assign them in your webpack config and let Webpack handle the rest!
-
-## How do I use this?
-
-First, clone this repo on your local machine and `cd` into it. You can then install the package dependencies by running `npm install`.
-
-You can then start the `webpack-dev-server` by running th command `npm start`.
-
-To output your website for production, run the comman `npm run build`.
-
-## Folder structure
+# Pug & Stylus work Template.
+This template created for multy-page layout. In this template every page has his own css file. Also, this package include bable.
 
 ```
+Folder structure
 src/
-  jade/
+  pug/
+    partials/
+      layout.pug
+      config.pug
+      nav.pug
+    index.pug  
+    about.pug 
   js/
     entries/
+      index.js
+      about.js 
   stylus/
+    style files
   images/
 webpack-config
 ```
 
-The files you should edit are inside the `src` folder.
+# Instruction
+This template include 2 demo-page. If you want create new page you must follow this instruction:
 
-Your Jade templates will be in the `src/jade/` folder and should be configured in your webpack config, as explained below.
-
-When you run the `build` npm script, your files will be minified and output in a `dist` folder with the following structure:
-
-```
-dist/
-  page1.html
-  page2.html
-  ...
-  css/
-    page1.css
-    page2.css
-    ...
-  js/
-    page1.js
-    page2.js
-    ...
-  images/
-    ...
+1) In this file webpack.config.js you must add config like that:
 ```
 
-## Webpack configuration
-
-
-### HtmlWebpackPlugin
-
-Each Jade file you want to convert to an HTML page needs to call an instance of the `HtmlWebpackPlugin`. To make things easier, I have created a function called `jadePage()` that will do just that.
-
-You can see this fuction used at the bottom of the `webpack.config.js` file, in the `plugins` array. All you need to do is invoke that function and pass it the name of your Jade file.
-
-If you wanted to compile a `contact.jade` file, you would simply add a line below the existing two, like so:
-
-`jadePage('contact')`
-
-### Entry Point
-
-Each page also needs to have its' own entry point, in the `entry` object on top of the config file. Assuming your contact page is sitting in `src/jade/`, you can use the `PATHS.entries` to add your new entry, like so:
+module.exports = {
+entry: {
+  index: PATHS.entries + 'index.js', // default page
+  about: PATHS.entries + 'about.js', // default page
+  new: PATHS.entries + 'new.js' // new page!
+},
+...
+plugins: [
+  jadePage('index'), // default
+  jadePage('about'), // default
+  jadePage('new'), // new page!
+  new ExtractTextPlugin('css/[name].css'),
+  new CopyWebpackPlugin([
+    { from: 'src/images', to: 'images' }
+  ])
+],
+...
+}
+```
+2) You must create your pug's file new.pug in folder pug/
+3) Add new.js in folder js/entries
+4) The last is adding new page in nav-chain located in nav.pug
 
 ```
-contact: PATHS.entries + 'contact.js'
+ul.nav
+  +navLink('/', 'index', 'Home') // default
+  +navLink('about.html', 'about', 'About') // default
+  +navLink('new.html', 'new', 'New') // new page!
 ```
+# Adding own css file foreach page
+In folder stylus/page create unique page's style file like new.styl
+Include style file in .js file
+```
+#index.js
 
-## Entry Point File
-
-Finally, you need to create a new Webpack entry file, in the `src/js/entries/` folder. This is where you'll import your JS and CSS modules, which will let Webpack know how to bundle your code together.
+import base from '../../stylus/base/index.styl' // default
+import nav from '../../stylus/modules/nav.styl' // default
+import hero from '../../stylus/modules/hero.styl' // default
+import index from '../../stylus/page/index.styl' // NEW
+```
+# Initialization
+```
+npm init
+npm install
+```
+# Commands
+```
+npm start - open hot-reloaded browser's window with your work.
+npm build - create files for production
+```
