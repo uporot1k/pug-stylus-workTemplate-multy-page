@@ -1,15 +1,15 @@
 {
-  "name": "multi-page-jade-webpack",
+  "name": "mytemp",
   "version": "1.0.0",
   "description": "A starting point to building multi-page websites with Jade templates.",
   "main": "webpack.config.js",
   "scripts": {
     "start": "webpack-dev-server --mode-development --open",
-    "build": "rm -rf dist && webpack -p"
+    "build": "webpack"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Egor Popov",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
     "babel-core": "^6.9.0",
@@ -29,5 +29,13 @@
     "stylus-loader": "^2.1.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uporot1k/workTemplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uporot1k/workTemplate/issues"
+  },
+  "homepage": "https://github.com/uporot1k/workTemplate#readme"
 }

@@ -49,6 +49,7 @@ module.exports = {
   },
   plugins: [
     jadePage('index'),
+    jadePage('about'),
     new ExtractTextPlugin('css/[name].css'),
     new CopyWebpackPlugin([
       { from: 'src/images', to: 'images' }
