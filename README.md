@@ -8,6 +8,7 @@ src/
     partials/
       layout.pug
       config.pug
+      nav.pug
     index.pug  
     about.pug 
   js/
@@ -21,8 +22,37 @@ webpack-config
 ```
 
 ## Instruction
+This template include 2 demo-page.
 If you want create new page you must follow this instruction:
-1) In this file ```webpack.config.js``` you must do 
+1) In this file ```webpack.config.js``` you must add config like that:
+  ```
+  module.exports = {
+  entry: {
+    index: PATHS.entries + 'index.js', // default page
+    about: PATHS.entries + 'about.js', // default page
+    new: PATHS.entries + 'new.js' // new page!
+  },
+  ...
+  plugins: [
+    jadePage('index'), // default
+    jadePage('about'), // default
+    jadePage('new'), // new page!
+    new ExtractTextPlugin('css/[name].css'),
+    new CopyWebpackPlugin([
+      { from: 'src/images', to: 'images' }
+    ])
+  ],
+  
+  ```
+2) You must create your pug's file ```new.pug``` in folder ```pug/```
+3) Add ```new.js``` in folder ```js/entries```
+4) The last is adding new page in nav-chain located in ```nav.pug```
+```
+ul.nav
+  +navLink('/', 'index', 'Home')
+  +navLink('about.html', 'about', 'About')
+  +navLink('new.html', 'new', 'New')
+```
 
 ## Initialization
 1) npm init
