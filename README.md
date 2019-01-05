@@ -49,9 +49,9 @@ If you want create new page you must follow this instruction:
 4) The last is adding new page in nav-chain located in ```nav.pug```
 ```
 ul.nav
-  +navLink('/', 'index', 'Home')
-  +navLink('about.html', 'about', 'About')
-  +navLink('new.html', 'new', 'New')
+  +navLink('/', 'index', 'Home') // default
+  +navLink('about.html', 'about', 'About') // default
+  +navLink('new.html', 'new', 'New') // new page!
 ```
 
 ## Initialization
