@@ -42,6 +42,8 @@ If you want create new page you must follow this instruction:
       { from: 'src/images', to: 'images' }
     ])
   ],
+  ...
+  }
   
   ```
 2) You must create your pug's file ```new.pug``` in folder ```pug/```
