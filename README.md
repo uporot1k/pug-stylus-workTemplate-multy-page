@@ -55,7 +55,18 @@ ul.nav
   +navLink('about.html', 'about', 'About') // default
   +navLink('new.html', 'new', 'New') // new page!
 ```
+## Adding own css file foreach page
+1) In folder ```stylus/page``` create unique page's style file like ```new.styl```
+2) Include style file in ```.js file```
+```
+#index.js
 
+import base from '../../stylus/base/index.styl' // default
+import nav from '../../stylus/modules/nav.styl' // default
+import hero from '../../stylus/modules/hero.styl' // default
+import index from '../../stylus/page/index.styl' // NEW
+
+```
 ## Initialization
 1) npm init
 2) npm install
