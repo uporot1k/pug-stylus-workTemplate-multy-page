@@ -24,7 +24,7 @@ webpack-config
 # Instruction
 This template include 2 demo-page. If you want create new page you must follow this instruction:
 
-1) In this file webpack.config.js you must add config like that:
+1) In this file ```webpack.config.js``` you must add config like that:
 ```
 
 module.exports = {
@@ -46,9 +46,9 @@ plugins: [
 ...
 }
 ```
-2) You must create your pug's file new.pug in folder pug/
-3) Add new.js in folder js/entries
-4) The last is adding new page in nav-chain located in nav.pug
+2) You must create your pug's file ```new.pug``` in folder ```pug/```
+3) Add ```new.js``` in folder ```js/entries```
+4) The last is adding new page in nav-chain located in ```nav.pug```
 
 ```
 ul.nav
@@ -57,8 +57,8 @@ ul.nav
   +navLink('new.html', 'new', 'New') // new page!
 ```
 # Adding own css file foreach page
-In folder stylus/page create unique page's style file like new.styl
-Include style file in .js file
+In folder ```stylus/page``` create unique page's style file like ```new.styl```
+Include style file in ```.js``` file
 ```
 #index.js
 
