@@ -1,7 +1,7 @@
 {
-  "name": "mytemp",
+  "name": "brandhub",
   "version": "1.0.0",
-  "description": "",
+  "description": "This template created for multy-page layout. In this template every page has his own css file. Also, this package include bable.",
   "main": "webpack.config.js",
   "scripts": {
     "start": "webpack-dev-server --mode-development --open",
@@ -29,5 +29,13 @@
     "stylus-loader": "^2.1.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uporot1k/brandhub.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uporot1k/brandhub/issues"
+  },
+  "homepage": "https://github.com/uporot1k/brandhub#readme"
 }
